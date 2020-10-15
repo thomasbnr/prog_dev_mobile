@@ -1,2 +1,2 @@
-# prog_dev_mobile
-projet
+Projet pour le cours de développement mobile
+
