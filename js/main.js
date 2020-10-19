@@ -47,7 +47,10 @@ const main = () => {
 	var renderer = new THREE.WebGLRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
-	
+
+	let controls = new THREE.OrbitControls(camera, renderer.domElement);
+
+
 	var cube = createCube("#FF0000");
 	// add cube to scene
 	scene.add( cube );
@@ -55,14 +58,15 @@ const main = () => {
 	var recube = createCube("#00FF00");
 	// add cube to scene
 	scene.add( recube );
-	
+
 	var torus = createTonus();
 	scene.add (torus);
 
 	var plane = createPlane();
 	scene.add (plane);
 
-	
+	plane.position.set(2,2,2);
+	torus.position.set(0,0,0);
 
 	camera.position.z = 10;
 
@@ -82,7 +86,7 @@ const main = () => {
 
 		plane.rotation.x += 0.03;
 		plane.rotation.y += 0.03;
-		
+
 		// move cube
 		recube.rotation.x -= 0.01;
 		recube.rotation.y -= 0.01;
@@ -92,4 +96,3 @@ const main = () => {
 	}
 
 };
-
