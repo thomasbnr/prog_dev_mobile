@@ -48,7 +48,9 @@ const main = () => {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
 
-	let controls = new THREE.OrbitControls(camera, renderer.domElement);
+	let controls = new THREE.FirstPersonControls(camera, renderer.domElement);
+	var clock = new THREE.Clock();
+	controls.lookSpeed = 0.1;
 
 
 	var cube = createCube("#FF0000");
@@ -75,8 +77,9 @@ const main = () => {
 	// animate loop
 	function animate() {
 		requestAnimationFrame( animate ); // request next frame
-
+		var delta = clock.getDelta();
 		// move cube
+
 		cube.rotation.x += 0.01;
 		cube.rotation.y += 0.01;
 
@@ -90,6 +93,8 @@ const main = () => {
 		// move cube
 		recube.rotation.x -= 0.01;
 		recube.rotation.y -= 0.01;
+
+		controls.update(delta);
 
 		// render !
 		renderer.render( scene, camera );
