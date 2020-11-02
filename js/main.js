@@ -48,6 +48,7 @@ const main = () => {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 	document.body.appendChild( renderer.domElement );
 
+	// FPS command
 	let controls = new THREE.FirstPersonControls(camera, renderer.domElement);
 	var clock = new THREE.Clock();
 	controls.lookSpeed = 0.1;
@@ -67,6 +68,7 @@ const main = () => {
 	var plane = createPlane();
 	scene.add (plane);
 
+	// Je donne des positions à mes formes
 	plane.position.set(2,2,2);
 	torus.position.set(0,0,0);
 
