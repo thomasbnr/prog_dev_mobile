@@ -1,0 +1,11 @@
+- trouver 2 nouvelles images pour les 2 panos  -> good
+- adapter la position des out/in put  -> good
+
+-implementer des hotspots  -> goods
+-Trouver des fichiers audio et les implanter, evenement ...
+- Meme chose pour des videos 
+- Meme chose pour image 2d
+
+
+Tous deposer sur le git 
+- Invite nicopowa en tant que collaborateur
