@@ -1,6 +1,0 @@
-Pour chaque exercice:
-  -se rendre dans le dossier de votre choix.
-  - puis lancer un serveur local
-
-
-  commande personnelle utilisée : python3 -m http.server 8000

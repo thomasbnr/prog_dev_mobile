@@ -1,0 +1,5 @@
+Pour chaque exercice :
+  - allez dans le dossier de votre choix.
+  - lancez un serveur local.
+
+  commande personnelle utilisée : python3 -m http.server 8000
