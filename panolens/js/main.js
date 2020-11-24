@@ -9,18 +9,18 @@ window.addEventListener("load", event => main());
 //window.addEventListener("load", event => create_Image());
 // Création de nos différents diaporama
 
-var sunset = "../assets/gaming.jpg";
+let sunset = "../assets/gaming.jpg";
 const panorama = new PANOLENS.ImagePanorama(sunset);
-var tunnel = "../assets/pano1.jpg"
+let tunnel = "../assets/pano1.jpg"
 const panorama2 = new PANOLENS.ImagePanorama(tunnel);
 
-var video = "../assets/clip.mp4";
+let video = "../assets/clip.mp4";
 const video1 = new PANOLENS.VideoPanorama(video, {autoplay: true});
 
-var videos = "../assets/clip1.mp4";
+let videos = "../assets/clip1.mp4";
 const video2 = new PANOLENS.VideoPanorama(videos, {autoplay: true})
 
-var viewer = new PANOLENS.Viewer();
+let viewer = new PANOLENS.Viewer();
 
 
 
@@ -207,11 +207,9 @@ const main = () => {
     let v2 = create_video_pan2(2120, -1300, -5000);
     let vb2 = create_back_pan2(0,0,-5000);
 
-    var i = create_image(3200, -3000,-5000);
-    var i2 = create_image2(1300,-2500,-5000);
+    let i = create_image(3200, -3000,-5000);
+    let i2 = create_image2(1300,-2500,-5000);
 
-
-    //var i1 = create_Image(0,400,-5000,12,12,12 )
 
     // Ajout de nos panoramas && infospots et de nos videos
 
