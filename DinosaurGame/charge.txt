@@ -1,0 +1,3 @@
+-ajout collision
+- replace if par switch
+- relancer la game en cliquant sur le sprite qui quand l'utilisateur perd 
