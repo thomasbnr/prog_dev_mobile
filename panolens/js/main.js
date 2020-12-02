@@ -1,12 +1,6 @@
 
 window.addEventListener("load", event => main());
 
-//window.addEventListener("click", event => createLink());
-//window.addEventListener("click", event => createLink_back());
-//window.addEventListener("click", event => create_hotspots1());
-//window.addEventListener("click", event => create_hotspots2());
-
-//window.addEventListener("load", event => create_Image());
 // Création de nos différents diaporama
 
 let sunset = "../assets/gaming.jpg";
@@ -30,7 +24,7 @@ const createLink = (x,y,length) => {
    const input = new PANOLENS.Infospot(250, "../assets/arrow-up.png");
    input.position.set(x,y,length);
    input.addHoverText("Envie de prendre l'air ?")
-   input.addEventListener('click', function(){
+   input.addEventListener('click', ()=>{
        viewer.setPanorama(panorama2);
        input.removeHoverElement();
       // console.log("Panorama setup")
@@ -42,7 +36,7 @@ const createLink_back = (x,y,length) => {
    const output = new PANOLENS.Infospot(250, "../assets/arrow-bottom.png");
    output.position.set(x,y,length);
    output.addHoverText("Il est temps de travailler")
-   output.addEventListener('click', function(){
+   output.addEventListener('click', ()=>{
        viewer.setPanorama(panorama);
        output.removeHoverElement();
        console.log("Panorama plages")
@@ -56,7 +50,7 @@ const create_video_pan1 = (x,y,length) => {
     const v = new PANOLENS.Infospot(250, "../assets/arrow-bottom.png");
     v.position.set(x,y,length);
     v.addHoverText("Une petite pause ?")
-    v.addEventListener('click', function(){
+    v.addEventListener('click', ()=>{
         viewer.setPanorama(video1);
         v.removeHoverElement();
     });
@@ -68,7 +62,7 @@ const create_back_pan1 = (x,y,length) => {
     const vb = new PANOLENS.Infospot(250, "../assets/arrow-bottom.png");
     vb.position.set(x,y,length);
     vb.addHoverText("Il est temps de revenir...")
-    vb.addEventListener('click', function() {
+    vb.addEventListener('click', ()=> {
         viewer.setPanorama(panorama);
         vb.removeHoverElement();
     });
@@ -79,7 +73,7 @@ const create_video_pan2 = (x,y,length) => {
     const v2 = new PANOLENS.Infospot(250, "../assets/arrow-up.png");
     v2.position.set(x,y,length);
     v2.addHoverText(" Une petite video ?")
-    v2.addEventListener('click', function(){
+    v2.addEventListener('click', ()=>{
         viewer.setPanorama(video2);
         v2.removeHoverElement();
     });
@@ -90,7 +84,7 @@ const create_back_pan2 = (x,y,length) => {
     const vb = new PANOLENS.Infospot(250, "../assets/arrow-bottom.png");
     vb.position.set(x,y,length);
     vb.addHoverText("Il est de temps de revenir")
-    vb.addEventListener("click", function() {
+    vb.addEventListener("click", ()=> {
         viewer.setPanorama(panorama2)
         vb.removeHoverElement();
 
@@ -105,7 +99,7 @@ const create_hotspots1 = (x,y,length) => {
     const h1 = new PANOLENS.Infospot(250, PANOLENS.DataImage.Info);
     h1.position.set(x,y,length);
     h1.addHoverText("Hotspot 1 ");
-    h1.addEventListener('click', function(){
+    h1.addEventListener('click', ()=>{
         index ++;
         h1.focus()
         h1.addHoverText('Magnifique écran 4k');
@@ -121,7 +115,7 @@ const create_hotspots2 = (x,y,length) => {
     const h2 = new PANOLENS.Infospot(150, PANOLENS.DataImage.Info);
     h2.position.set(x,y,length);
     h2.addHoverText("Hotspot 1 ");
-    h2.addEventListener('click', function(){
+    h2.addEventListener('click', ()=>{
         index ++;
         h2.focus()
         h2.addHoverText('Vu dans les nuages');
@@ -138,7 +132,7 @@ const create_hotspots3 = (x,y,length) => {
     const h3 = new PANOLENS.Infospot(150, PANOLENS.DataImage.Info);
     h3.position.set(x,y,length);
     h3.addHoverText("Hotspot 2 ");
-    h3.addEventListener('click', function(){
+    h3.addEventListener('click', ()=>{
         h3.focus()
         index ++;
         h3.addHoverText('Magnifique carte graphique');
@@ -153,7 +147,7 @@ const create_hotspots4 = (x,y,length) => {
     const h4 = new PANOLENS.Infospot(350, PANOLENS.DataImage.Info);
     h4.position.set(x,y,length);
     h4.addHoverText("Hotspot 2 ");
-    h4.addEventListener('click', function(){
+    h4.addEventListener('click', ()=>{
         h4.focus()
         index ++;
         h4.addHoverText('Regarde il prépare son bateau !');
@@ -167,7 +161,7 @@ const create_image = (x,y,length) => {
     const i = new PANOLENS.Infospot(1500, "./assets/souris.png");
     i.position.set(x,y,length);
     i.addHoverText("Tapis de souris")
-    i.addEventListener('click', function() {
+    i.addEventListener('click', ()=> {
         i.focus();
         i.removeHoverElement();
     });
@@ -179,7 +173,7 @@ const create_image2 = (x,y,length) => {
     const i = new PANOLENS.Infospot(1000, "./assets/marin.png");
     i.position.set(x,y,length)
     i.addHoverText("Tu devrais regarder à l'intérieur");
-    i.addEventListener('click', function() {
+    i.addEventListener('click', ()=> {
         i.focus();
         i.removeHoverElement();
     });
@@ -211,6 +205,7 @@ const main = () => {
     let i2 = create_image2(1300,-2500,-5000);
 
 
+
     // Ajout de nos panoramas && infospots et de nos videos
 
     panorama.add(input,h1,h3,v1,i,);
@@ -218,8 +213,7 @@ const main = () => {
     video1.add(vb1);
     video2.add(vb2);
     viewer.add(panorama, panorama2,video1,video2,);
-    viewer.addUpdateCallback(function(){
-
+    viewer.addUpdateCallback(()=>{
     });
 
     //
