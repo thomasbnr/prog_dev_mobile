@@ -1,4 +1,3 @@
-
 window.addEventListener("load", event => main());
 
 // Création de nos différents diaporama
@@ -49,9 +48,9 @@ const createLink_back = (x,y,length) => {
 const create_video_pan1 = (x,y,length) => {
     const v = new PANOLENS.Infospot(250, "../assets/arrow-bottom.png");
     v.position.set(x,y,length);
-    v.addHoverText("Une petite pause ?")
+    v.addHoverText("Une petite pause ?");
     v.addEventListener('click', ()=>{
-        viewer.setPanorama(video1);
+        viewer.setPanorama(video2);
         v.removeHoverElement();
     });
 
@@ -74,7 +73,7 @@ const create_video_pan2 = (x,y,length) => {
     v2.position.set(x,y,length);
     v2.addHoverText(" Une petite video ?")
     v2.addEventListener('click', ()=>{
-        viewer.setPanorama(video2);
+        viewer.setPanorama(video1);
         v2.removeHoverElement();
     });
     return v2;
@@ -92,6 +91,33 @@ const create_back_pan2 = (x,y,length) => {
     return vb;
 }
 
+// Sons pour les panoramas
+
+const create_sound1 = (x,y,length) => {
+    const h1 = new PANOLENS.Infospot(250, PANOLENS.DataImage.Info);
+    h1.position.set(x,y,length);
+    h1.addHoverText(" Un petit son ? ");
+    h1.addEventListener('click', ()=>{
+        h1.focus();
+        let s1 = document.createElement('audio');
+        s1.src = "../assets/bruit1_1.mp3";
+        s1.play();
+    });
+    return h1;
+}
+
+const create_sound2 = (x,y,length) => {
+    const h1 = new PANOLENS.Infospot(250, PANOLENS.DataImage.Info);
+    h1.position.set(x,y,length);
+    h1.addHoverText("  Ecoute le bruit de la mer ");
+    h1.addEventListener('click', ()=>{
+        h1.focus();
+        let s2 = document.createElement('audio');
+        s2.src = "../assets/bruit2_2.mp4";
+        s2.play();
+    });
+    return h1;
+}
 // Création des hotspot pour les panoramas
 
 const create_hotspots1 = (x,y,length) => {
@@ -204,12 +230,14 @@ const main = () => {
     let i = create_image(3200, -3000,-5000);
     let i2 = create_image2(1300,-2500,-5000);
 
-
+    //Sons
+    let s1 = create_sound1(4600, -2300, -5000);
+    let s2 = create_sound2(3460, -1850, -5000);
 
     // Ajout de nos panoramas && infospots et de nos videos
 
-    panorama.add(input,h1,h3,v1,i,);
-    panorama2.add(output,h2,h4,v2,i2);
+    panorama.add(input,h1,h3,v1,i,s1);
+    panorama2.add(output,h2,h4,v2,i2,s2);
     video1.add(vb1);
     video2.add(vb2);
     viewer.add(panorama, panorama2,video1,video2,);
