@@ -2,7 +2,7 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 
 let fps, Play, sprite, sol, cloud, trex, cactus, fin,score = 0;
-const velocity = 5;
+const velocity =5;
 const init = () => {
 
 
@@ -30,7 +30,7 @@ const init = () => {
         }
     }
     // CLOUD
-    // Mes sprites sont sur une seul image, donc je choisie  celui que je veux
+    // Mes sprites sont sur une seul image, donc je choisie  celui que je veux, avec "sx"
     // Il peut y avoir qu'un seul nuage dans le canvas qui apparaît alétoirement en fonction de y avec le même x
     cloud = {
         w: 100,h: 100,sx: 100,copy: [],
@@ -55,8 +55,11 @@ const init = () => {
             // DRAW
             for (i = 0; i < this.copy.length; i++) {
                 ctx.drawImage(sprite, this.sx, 0, 100, 100, this.copy[i].x, this.copy[i].y, this.w, this.h);
+
                 // MOVE
                 this.copy[i].x -= velocity/2;
+
+
             }
         }
     }
@@ -154,14 +157,27 @@ const init = () => {
             this.create();
             // DRAW
             let compteur = 0;
+            let speed = 5;
             for (i = 0; i < this.copy.length; i++) {
                 ctx.drawImage(sprite, this.sx, 0, 100, 100, this.copy[i].x, this.copy[i].y, this.w, this.h);
                 compteur++;
                 // MOVE
-                this.copy[i].x -= 5;
-               if(((trex.x + trex.w-9 >= this.copy[i].x) && (trex.x <= this.copy[i].x + this.w-10)) && ((trex.y + trex.h-10 >= this.copy[i].y+10) && (trex.y <= this.copy[i].y+10 + this.h))) {
-                console.log("col");
-                Play = false;
+
+                 this.copy[i].x -= speed;
+                // A modifier
+                if(compteur >= 10)
+                    this.copy[i].x -= speed -1.5;
+                if (compteur >=35)
+                    this.copy[i].x -= speed-2;
+                if (compteur >= 40)
+                    this.copy[i].x -= speed-1;
+
+
+                if(((trex.x + trex.w-10 >= this.copy[i].x) && (trex.x <= this.copy[i].x-6 + this.w-10)) && ((trex.y + trex.h-17 >= this.copy[i].y+10) && (trex.y <= this.copy[i].y+10 + this.h))) {
+                    console.log("col");
+                    console.log(compteur);
+                    console.log(speed);
+                    Play = false;
                }
             }
         }
