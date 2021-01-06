@@ -76,7 +76,7 @@ const init = () => {
                     this.ready = false;
                     trex.w = 50;
                     trex.sw = 100;
-                    // DEFAULT
+                    // DEFAULT 
                     if (!trex.jumping) {
                         if (this.scene < this.run.length - 1) {
                             this.scene++;
@@ -196,12 +196,12 @@ const init = () => {
     fps = 60;
     Play = true;
     setInterval(() => {
-        requestAnimationFrame(update);
+        requestAnimationFrame(main);
     }, 1000/fps);
  }
 
 init();
-const update = () => {
+const main = () => {
     if (Play) {
         ctx.clearRect(0, 0, canvas.width, canvas.height); // Effacement du canvas --> Obligatoire
 
